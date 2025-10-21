@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Users\Subjects;
 
 use App\Models\Posts\Like;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -73,7 +73,7 @@ class User extends Authenticatable
 
     public function subjects()
     {
-        return $this->belongsToMany(Subjects::class); // リレーションの定義
+        return $this->belongsToMany(Subjects::class, 'subject_users', 'user_id', 'subject_id'); // リレーションの定義
     }
 
     // いいねしているかどうか
