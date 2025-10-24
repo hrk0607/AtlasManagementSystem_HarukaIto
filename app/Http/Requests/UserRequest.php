@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -31,9 +31,9 @@ class UserRequest extends FormRequest
             'over_name_kana' => 'required|string|max:30|regex:/^[ァ-ヶ]+$/u',
             'under_name_kana' => 'required|string|max:30|regex:/^[ァ-ヶ]+$/u',
             'mail_address' => 'required|email|max:100|unique:users,mail_address',
-            'sex' => 'required|in:男性,女性,その他',
-            'birth_date' => 'required|date|after_or_equal:2000-01-01|after_or_equal:2000-01-01',
-            'role' => 'required|in:講師（国語）,講師（数学）,教師（英語）,生徒',
+            'sex' => 'required|in:1,2,3',
+            'birth_date' => 'required|date|after_or_equal:2000-01-01|before_or_equal:' . now()->format('Y-m-d'),
+            'role' => 'required|in:1,2,3,4',
             'password' => 'required|min:8|max:30|confirmed',
         ];
     }
