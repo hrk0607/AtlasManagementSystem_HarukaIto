@@ -73,4 +73,8 @@ $(function () {
     $('.js-delete-modal').fadeOut();
   });
 
+  // ページ読み込み時、エラーがあればモーダルを開く
+  if ($('.js-modal').attr('style')?.includes('display:block')) {
+    $('.js-modal').fadeIn();
+  }
 });

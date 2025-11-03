@@ -8,7 +8,7 @@
             </div>
             <div>
               @if(Auth::id() === $post->user_id)
-              <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
+              <span class="edit-modal-open btn btn-primary" post_id="{{ $post->id }}" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}">編集</span>
               <button type="button" class="js-delete-btn btn btn-danger" data-id="{{ $post->id }}">削除</button>
               @endif
 
@@ -23,8 +23,8 @@
             </p>
             <span class="ml-5">{{ $post->created_at }}</span>
           </div>
-          <div class="detsail_post_title">{{ $post->post_title }}</div>
-          <div class="mt-3 detsail_post">{{ $post->post }}</div>
+          <div class="detail_post_title">{{ $post->post_title }}</div>
+          <div class="mt-3 detail_post">{{ $post->post }}</div>
         </div>
         <div class="p-3">
           <div class="comment_container">
@@ -54,8 +54,8 @@
       </div>
     </div>
   </div>
-  <div class="modal js-modal">
-    <div class="modal__bg js-modal-close"></div>
+  <div class="modal js-modal" style="{{ $errors->any() ? 'display:block;' : 'display:none;' }}">
+    <div class=" modal__bg js-modal-close"></div>
     <div class="modal__content">
       <form action="{{ route('post.edit') }}" method="post">
         <div class="w-100">
@@ -96,4 +96,12 @@
     </div>
   </div>
 
+  @if ($errors->any())
+  <script>
+    $(window).on('load', function() {
+      // 編集モーダルを強制的に開く
+      $('.js-modal').fadeIn();
+    });
+  </script>
+  @endif
 </x-sidebar>
