@@ -46,15 +46,20 @@
       <div class="comment_container border m-5">
         <div class="comment_area p-3">
           <p class="m-0">コメントする</p>
-          <textarea class="w-100" name="comment" form="commentRequest"></textarea>
-          <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
-          <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
-          <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
+          <form action="{{ route('comment.create') }}" method="post" id="commentRequest">
+            {{ csrf_field() }}
+            <textarea class="w-100" name="comment"></textarea>
+            @error('comment')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+            <input type="hidden" name="post_id" value="{{ $post->id }}">
+            <input type="submit" class="btn btn-primary" value="投稿">
+          </form>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal js-modal" style="{{ $errors->any() ? 'display:block;' : 'display:none;' }}">
+  <div class="modal js-modal" style="{{ ($errors->has('post_title') || $errors->has('post_body')) ? 'display:block;' : 'display:none;' }}">
     <div class=" modal__bg js-modal-close"></div>
     <div class="modal__content">
       <form action="{{ route('post.edit') }}" method="post">
