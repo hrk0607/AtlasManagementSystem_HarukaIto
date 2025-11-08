@@ -8,15 +8,21 @@ class SubCategory extends Model
 {
     const UPDATED_AT = null;
     const CREATED_AT = null;
+
+    protected $table = 'sub_categories';
     protected $fillable = [
         'main_category_id',
         'sub_category',
     ];
-    public function mainCategory(){
+    public function mainCategory()
+    {
         // リレーションの定義
+        return $this->belongsTo(MainCategory::class, 'main_category_id');
     }
 
-    public function posts(){
+    public function posts()
+    {
         // リレーションの定義
+        return $this->belongsToMany(\App\Models\Posts\Post::class, 'post_sub_categories', 'sub_category_id', 'post_id');
     }
 }
