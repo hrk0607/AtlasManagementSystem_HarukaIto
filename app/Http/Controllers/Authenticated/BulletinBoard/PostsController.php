@@ -26,12 +26,35 @@ class PostsController extends Controller
         $like = new Like;
         $post_comment = new Post;
         if (!empty($request->keyword)) {
+            // まず通常のタイトル・本文検索
             $posts = Post::with('user', 'postComments')
                 ->where('post_title', 'like', '%' . $request->keyword . '%')
-                ->orWhere('post', 'like', '%' . $request->keyword . '%')->get();
+                ->orWhere('post', 'like', '%' . $request->keyword . '%')
+                ->withCount(['postComments', 'likes'])
+                ->get();
+
+            // キーワードがサブカテゴリー名と完全一致するかチェック
+            $matchedSubCategory = \App\Models\Categories\SubCategory::where('sub_category', $request->keyword)->first();
+
+            if ($matchedSubCategory) {
+                // 一致したらそのサブカテゴリーに属している投稿のみ取得
+                $posts = Post::with('user', 'postComments')
+                    ->whereHas('subCategories', function ($query) use ($matchedSubCategory) {
+                        $query->where('sub_category_id', $matchedSubCategory->id);
+                    })
+                    ->withCount(['postComments', 'likes'])
+                    ->get();
+            }
         } else if ($request->category_word) {
             $sub_category = $request->category_word;
             $posts = Post::with('user', 'postComments')->get();
+        } else if ($request->sub_category_id) {
+            $posts = Post::with('user', 'postComments')
+                ->whereHas('subCategories', function ($query) use ($request) {
+                    $query->where('sub_categories.id', $request->sub_category_id);
+                })
+                ->withCount(['postComments', 'likes'])
+                ->get();
         } else if ($request->like_posts) {
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
@@ -63,6 +86,7 @@ class PostsController extends Controller
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
+        $post->subCategories()->attach($request->sub_category_id);
         return redirect()->route('post.show');
     }
 

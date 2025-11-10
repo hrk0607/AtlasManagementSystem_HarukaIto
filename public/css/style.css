@@ -277,3 +277,122 @@ li {
 .subject_inner {
   display: none;
 }
+
+.w-70 {
+  width: 70% !important;
+}
+
+.other_area {
+  border: none;
+  margin-top: 3rem;
+  width: 30%;
+  padding-right: 3rem;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #03AAD2;
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.post-btn:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.search-box {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  /* ←角丸強めに！ */
+  overflow: hidden;
+  /* ←中の角をきれいに処理 */
+}
+
+.search-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding: 10px 12px;
+}
+
+.search-button {
+  background-color: #03AAD2;
+  border: none;
+  padding: 10px 20px;
+  border-top-left-radius: 0;
+  /* ←左角をまっすぐ */
+  border-bottom-left-radius: 0;
+  /* ←左角をまっすぐ */
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  cursor: pointer;
+}
+
+.like_posts_btn {
+  border: none;
+  background-color: #f78fa7;
+  border-radius: 12px;
+  /* ←角丸強めに！ */
+  overflow: hidden;
+  /* ←中の角をきれいに処理 */
+  padding: 10px 0;
+  color: white;
+  cursor: pointer;
+}
+
+.my_posts_btn {
+  border: none;
+  background-color: #fcc800;
+  border-radius: 12px;
+  /* ←角丸強めに！ */
+  overflow: hidden;
+  /* ←中の角をきれいに処理 */
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.category-list p {
+  margin: 0;
+}
+
+/* 各メインカテゴリ */
+.main_categories {
+  padding: 10px 0;
+}
+
+/* メインタイトル行（矢印含む） */
+.main-header {
+  color: #333;
+  transition: color 0.2s;
+}
+
+/* 矢印回転アニメーション */
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+/* 矢印の向きを開閉で変更 */
+.main-header[aria-expanded="true"] .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* サブカテゴリー */
+.sub-list {
+  padding-left: 15px;
+}
+
+.sub-item {
+  padding: 6px 0;
+  border-bottom: 1px solid #ccc;
+  color: #555;
+}
