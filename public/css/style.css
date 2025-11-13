@@ -157,11 +157,11 @@ li {
   font-weight: bold;
 }
 
-.detsail_post_title {
+.detail_post_title {
   font-size: 14px;
 }
 
-.detsail_post {
+.detail_post {
   font-size: 12px;
   color: #9E9E9E;
 }
@@ -243,11 +243,9 @@ li {
   flex-wrap: wrap;
   width: 800px;
   margin: 10px auto;
-  height: 80vh;
-  overflow: scroll;
+  overflow: auto;
   padding: 10px;
-  background: #FFF;
-  border-radius: 5px;
+  gap: 15px;
 }
 
 .reserve_users_area span {
@@ -255,19 +253,59 @@ li {
 }
 
 .one_person {
-  width: 250px;
-  height: 250px;
+  flex: 1 1 calc(25% - 15px);
+  width: 200px;
+  height: 200px;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px -5px #ccc;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.person-label {
+  color: #808080;
+}
+
+.search_area {
+  padding: 50px 50px 0 0;
+}
+
+.search_area>div>div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #494e68;
+}
+
+.free_word {
+  background-color: #dcdcdc;
+  color: #494949;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 12px;
+}
+
+.search_category {
+  border-radius: 5px;
+  border: none;
+  padding: 7px 10px;
+  width: 35%;
+  background-color: #dcdcdc;
+  color: #494949;
 }
 
 .search_conditions span {
   cursor: pointer;
 }
 
-.search_conditions_inner {
-  display: none;
-  background: #FFF;
-}
-
+/* profile */
 .subject_edit_btn {
   font-size: 12px;
   color: #0000FF;
@@ -381,8 +419,9 @@ li {
   transition: transform 0.3s ease;
 }
 
-/* 矢印の向きを開閉で変更 */
-.main-header[aria-expanded="true"] .arrow-icon {
+/* main-header と search_conditions の両方対応 */
+.main-header[aria-expanded="true"] .arrow-icon,
+.search_conditions[aria-expanded="true"] .arrow-icon {
   transform: rotate(180deg);
 }
 
