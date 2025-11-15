@@ -1,4 +1,11 @@
 <x-sidebar>
+  @php
+  $subjectNames = [
+  1 => '国語',
+  2 => '数学',
+  3 => '英語',
+  ];
+  @endphp
   <div class="search_content w-100 border d-flex">
     <div class="reserve_users_area">
       @foreach($users as $user)
@@ -45,6 +52,11 @@
         <div>
           @if($user->role == 4)
           <span class="person-label">選択科目 :</span>
+          <span>
+            @foreach ($user->subjects as $subject)
+            {{ $subjectNames[$subject->pivot->subject_id] ?? '不明' }}
+            @endforeach
+          </span>
           @endif
         </div>
       </div>
