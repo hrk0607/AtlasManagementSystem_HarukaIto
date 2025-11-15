@@ -80,23 +80,49 @@
             <i class="arrow-icon fa fa-chevron-down"></i>
           </div>
           <div class="collapse search_conditions_inner mt-2" id="searchConditions">
-            <label>性別</label>
-            <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
-            <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
-            <span>その他</span><input type="radio" name="sex" value="3" form="userSearchRequest">
-            <label>権限</label>
-            <select name="role" form="userSearchRequest" class="search_category">
-              <option selected disabled>----</option>
-              <option value="1">教師(国語)</option>
-              <option value="2">教師(数学)</option>
-              <option value="3">教師(英語)</option>
-              <option value="4" class="">生徒</option>
-            </select>
-            <label>選択科目</label>
+            <div>
+              <label>性別</label>
+            </div>
+            <div>
+              <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
+              <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
+              <span>その他</span><input type="radio" name="sex" value="3" form="userSearchRequest">
+            </div>
+            <div>
+              <label>権限</label>
+            </div>
+            <div>
+              <select name="role" form="userSearchRequest" class="search_role">
+                <option selected disabled>----</option>
+                <option value="1">教師(国語)</option>
+                <option value="2">教師(数学)</option>
+                <option value="3">教師(英語)</option>
+                <option value="4" class="">生徒</option>
+              </select>
+            </div>
+            <div>
+              <label>選択科目</label>
+            </div>
+            <div>
+              <div class="subject_checkbox_wrap">
+                <label>
+                  国語
+                  <input type="checkbox" name="subject_ids[]" value="1" form="userSearchRequest">
+                </label>
+                <label>
+                  数学
+                  <input type="checkbox" name="subject_ids[]" value="2" form="userSearchRequest">
+                </label>
+                <label>
+                  英語
+                  <input type="checkbox" name="subject_ids[]" value="3" form="userSearchRequest">
+                </label>
+              </div>
+            </div>
           </div>
         </div>
         <div>
-          <input type="submit" name="search_btn" value="検索" form="userSearchRequest">
+          <input type="submit" name="search_btn" class="search-btn" value="検索" form="userSearchRequest">
         </div>
         <div>
           <input type="reset" value="リセット" form="userSearchRequest">
