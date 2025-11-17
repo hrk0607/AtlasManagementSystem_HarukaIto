@@ -52,7 +52,7 @@ li {
 }
 
 .past-day {
-  background: #EEE;
+  background: #e0e0e0 !important;
 }
 
 .calendar-td {
@@ -380,9 +380,7 @@ label {
 .search-box {
   border: 1px solid #ccc;
   border-radius: 12px;
-  /* ←角丸強めに！ */
   overflow: hidden;
-  /* ←中の角をきれいに処理 */
 }
 
 .search-input {
@@ -398,9 +396,7 @@ label {
   border: none;
   padding: 10px 20px;
   border-top-left-radius: 0;
-  /* ←左角をまっすぐ */
   border-bottom-left-radius: 0;
-  /* ←左角をまっすぐ */
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   cursor: pointer;
@@ -410,9 +406,7 @@ label {
   border: none;
   background-color: #f78fa7;
   border-radius: 12px;
-  /* ←角丸強めに！ */
   overflow: hidden;
-  /* ←中の角をきれいに処理 */
   padding: 10px 0;
   color: white;
   cursor: pointer;
@@ -422,9 +416,7 @@ label {
   border: none;
   background-color: #fcc800;
   border-radius: 12px;
-  /* ←角丸強めに！ */
   overflow: hidden;
-  /* ←中の角をきれいに処理 */
   padding: 10px 20px;
   color: white;
   cursor: pointer;

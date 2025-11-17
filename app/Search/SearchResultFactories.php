@@ -32,7 +32,6 @@ class SearchResultFactories
       $query->where('role', $role);
     }
 
-    // ▼▼▼ ココ！！ subjects が効かない原因はここ ▼▼▼
     if (!empty($subjects) && is_array($subjects)) {
       $query->whereHas('subjects', function ($q) use ($subjects) {
         $q->whereIn('subjects.id', $subjects);
