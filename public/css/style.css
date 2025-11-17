@@ -39,6 +39,29 @@ li {
 }
 
 /* スクール予約関連 */
+.calendar-wrapper {
+  padding-top: 2rem;
+  background: #ECF1F6;
+}
+
+.calendar-inner {
+  width: 75%;
+  margin: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  background: #FFF;
+  box-shadow: 0px 5px 5px 5px #ccc;
+}
+
+.calendar-box {
+  width: 75%;
+  margin: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
 .day-blank {
   background: #D3D3D3;
 }

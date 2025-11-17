@@ -31,8 +31,8 @@ class CalendarView
     $html[] = '<th>水</th>';
     $html[] = '<th>木</th>';
     $html[] = '<th>金</th>';
-    $html[] = '<th>土</th>';
-    $html[] = '<th>日</th>';
+    $html[] = '<th class="day-sat">土</th>';
+    $html[] = '<th class="day-sun">日</th>';
     $html[] = '</tr>';
     $html[] = '</thead>';
     $html[] = '<tbody>';
@@ -43,21 +43,30 @@ class CalendarView
       $days = $week->getDays();
       foreach ($days as $day) {
         if (!$day->everyDay()) {
-          $html[] = '<td class="calendar-td"></td>';
+          $html[] = '<td class="calendar-td day-blank"></td>';
           continue;
         }
         $startDay = $this->carbon->copy()->format("Y-m-01");
         $toDay = $this->carbon->copy()->format("Y-m-d");
 
-        $today = Carbon::today()->format("Y-m-d");
         $target = $day->everyDay();
+        $weekday = Carbon::parse($target)->dayOfWeek; // 0=日, 6=土
+        $today = Carbon::today()->format("Y-m-d");
+
+        // 土日用クラス付与
+        $weekClass = '';
+        if ($weekday == 6) {
+          $weekClass = 'day-sat';  // 土曜
+        } elseif ($weekday == 0) {
+          $weekClass = 'day-sun';    // 日曜
+        }
 
         if ($target < $today) {
-          // 過去日 → グレーアウト用 class を付ける
-          $html[] = '<td class="calendar-td past-day">';
+          // 過去日
+          $html[] = '<td class="calendar-td past-day ' . $weekClass . '">';
         } else {
-          // 当日・未来日
-          $html[] = '<td class="calendar-td ' . $day->getClassName() . '">';
+          // 未来日・今日
+          $html[] = '<td class="calendar-td ' . $weekClass . ' ' . $day->getClassName() . '">';
         }
         $html[] = $day->render();
 
