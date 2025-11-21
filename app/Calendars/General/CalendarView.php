@@ -93,7 +93,7 @@ class CalendarView
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px; color:#666;">' . $reservePart . '</p>';
           } else {
             // 未来日：削除ボタン
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="' . $day->authReserveDate($day->everyDay())->first()->setting_reserve . '">' . $reservePart . '</button>';
+            $html[] = '<button type="button" class="btn btn-danger p-0 w-75 open-cancel-modal" style="font-size:12px" data-date="' . $day->everyDay() . '" data-part="' . $reservePart . '" data-reserve-id="' . $day->authReserveDate($day->everyDay())->first()->id . '">' . $reservePart . '</button>';
           }
 
           $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';

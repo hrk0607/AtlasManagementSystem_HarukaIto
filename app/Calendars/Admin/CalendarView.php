@@ -60,7 +60,7 @@ class CalendarView
             $html[] = '<div class="text-muted" style="font-size:12px;">受付終了</div>';
           } else {
             // 予約あり
-            $html[] = '<div class="text-muted" style="font-size:12px;">参加 ' . $count . '</div>';
+            $html[] = '<div class="text-muted" style="font-size:12px;"> ' . $count . '</div>';
           }
         } else {
           // 未来 & 当日
