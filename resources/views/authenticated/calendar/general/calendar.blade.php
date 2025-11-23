@@ -10,26 +10,21 @@
           <div class="modal-dialog">
             <div class="modal-content">
 
-              <div class="modal-header">
-                <h5 class="modal-title">予約キャンセル確認</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
+              <div class="modal-body" style="margin:1rem;">
                 <p>予約日：<span id="modalDate"></span></p>
                 <p>予約時間：<span id="modalPart"></span></p>
-              </div>
+                <p>上記の予約をキャンセルしてもよろしいですか？</p>
 
-              <div class="modal-footer">
-                <form action="/delete/calendar" method="post">
-                  @csrf
-                  <input type="hidden" name="delete_reserve_id" id="modalReserveId">
-                  <button type="submit" class="btn btn-danger">キャンセルする</button>
-                </form>
-              </div>
+                <div class="modal-button" style="display: flex;justify-content: space-between;">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" style="padding:0 1.5rem;">閉じる</button>
+                  <form action="/delete/calendar" method="post">
+                    @csrf
+                    <input type="hidden" name="delete_reserve_id" id="modalReserveId">
+                    <button type="submit" class="btn btn-danger">キャンセル</button>
+                  </form>
+                </div>
 
+              </div>
             </div>
           </div>
         </div>

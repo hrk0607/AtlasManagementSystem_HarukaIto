@@ -117,6 +117,10 @@ li {
   width: 70%;
 }
 
+.day-num {
+  margin-bottom: 0 !important;
+}
+
 /* モーダル */
 .modal {
   display: none;

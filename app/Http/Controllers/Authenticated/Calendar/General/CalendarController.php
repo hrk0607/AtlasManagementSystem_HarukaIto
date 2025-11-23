@@ -42,11 +42,14 @@ class CalendarController extends Controller
     {
         $reserveId = $request->delete_reserve_id;
 
+        // ① ユーザーの予約レコードだけ削除
         \DB::table('reserve_setting_users')
             ->where('reserve_setting_id', $reserveId)
             ->delete();
 
-        \App\Models\Calendars\ReserveSettings::where('id', $reserveId)->delete();
+        // ② 予約枠(limit) を 1 戻す
+        \App\Models\Calendars\ReserveSettings::where('id', $reserveId)
+            ->increment('limit_users', 1);
 
         return redirect()->back()->with('success', '予約をキャンセルしました。');
     }
