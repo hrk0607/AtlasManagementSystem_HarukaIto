@@ -32,25 +32,43 @@ class CalendarWeekDay
   function dayPartCounts($ymd)
   {
     $html = [];
-    $one_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first();
-    $two_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first();
-    $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
+
+    $one = ReserveSettings::with('users')
+      ->where('setting_reserve', $ymd)
+      ->where('setting_part', 1)
+      ->first();
+
+    $two = ReserveSettings::with('users')
+      ->where('setting_reserve', $ymd)
+      ->where('setting_part', 2)
+      ->first();
+
+    $three = ReserveSettings::with('users')
+      ->where('setting_reserve', $ymd)
+      ->where('setting_part', 3)
+      ->first();
 
     $html[] = '<div class="text-left">';
-    if ($one_part) {
-      $html[] = '<p class="day_part m-0 pt-1">1部</p>';
+
+    if ($one) {
+      $count = $one->users->count();
+      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1">1部</p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
     }
-    if ($two_part) {
-      $html[] = '<p class="day_part m-0 pt-1">2部</p>';
+
+    if ($two) {
+      $count = $two->users->count();
+      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1">2部</p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
     }
-    if ($three_part) {
-      $html[] = '<p class="day_part m-0 pt-1">3部</p>';
+
+    if ($three) {
+      $count = $three->users->count();
+      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1">3部</p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
     }
+
     $html[] = '</div>';
 
     return implode("", $html);
   }
-
 
   function onePartFrame($day)
   {
@@ -83,15 +101,17 @@ class CalendarWeekDay
     return $three_part_frame;
   }
 
-  //
   function dayNumberAdjustment()
   {
+    $date = $this->everyDay();
     $html = [];
+
     $html[] = '<div class="adjust-area">';
     $html[] = '<p class="d-flex m-0 p-0">1部<input class="w-25" style="height:20px;" name="1" type="text" form="reserveSetting"></p>';
     $html[] = '<p class="d-flex m-0 p-0">2部<input class="w-25" style="height:20px;" name="2" type="text" form="reserveSetting"></p>';
     $html[] = '<p class="d-flex m-0 p-0">3部<input class="w-25" style="height:20px;" name="3" type="text" form="reserveSetting"></p>';
     $html[] = '</div>';
+
     return implode('', $html);
   }
 }

@@ -97,6 +97,11 @@ li {
 }
 
 .day_part {
+  color: #03AAD2;
+  font-size: 12px;
+}
+
+.count_part {
   color: #494949;
   font-size: 12px;
 }
