@@ -136,6 +136,34 @@ li {
   margin-bottom: 0 !important;
 }
 
+.reserve-wrapper {
+  padding-top: 2rem;
+  background: #ECF1F6;
+}
+
+.reserve-inner {
+  width: 75%;
+  padding: 5px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  background: #FFF;
+  box-shadow: 0px 5px 5px 5px #ccc;
+  overflow: hidden;
+}
+
+.table-header {
+  background-color: #03AAD2;
+  color: #fff;
+}
+
+.table-row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.table-row:nth-child(even) {
+  background-color: #e6f5fb;
+}
+
 /* モーダル */
 .modal {
   display: none;
