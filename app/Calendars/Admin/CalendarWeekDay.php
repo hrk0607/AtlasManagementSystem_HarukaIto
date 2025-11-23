@@ -52,17 +52,17 @@ class CalendarWeekDay
 
     if ($one) {
       $count = $one->users->count();
-      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1">1部</p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
+      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', ['date' => $ymd, 'part' => 1]) . '">1部</a></p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
     }
 
     if ($two) {
       $count = $two->users->count();
-      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1">2部</p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
+      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', ['date' => $ymd, 'part' => 2]) . '">2部</a></p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
     }
 
     if ($three) {
       $count = $three->users->count();
-      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1">3部</p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
+      $html[] = '<div class="reserve-count" style="display: flex; justify-content: space-around;"><p class="day_part m-0 pt-1"><a href="' . route('calendar.admin.detail', ['date' => $ymd, 'part' => 3]) . '">3部</a></p><p class="count_part m-0 pt-1"">' . $count . '</p></div>';
     }
 
     $html[] = '</div>';
