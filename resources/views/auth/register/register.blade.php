@@ -1,11 +1,12 @@
 <x-guest-layout>
   <form action="{{ route('registerPost') }}" method="POST">
-    <div class="w-100 min-vh-100 d-flex" style="align-items:center; justify-content:center;">
-      <div class="w-25 vh-75 border p-3">
+    @csrf
+    <div class="login-cover">
+      <div class="login-box" style="padding:2rem;">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
-              <label class="d-block m-0" style="font-size:13px">姓</label>
+              <label class="d-block m-0" style="font-size:13px; font-weight:bold;">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
                 @error('over_name')
@@ -14,7 +15,7 @@
               </div>
             </div>
             <div class="" style="width:140px">
-              <label class=" d-block m-0" style="font-size:13px">名</label>
+              <label class=" d-block m-0" style="font-size:13px; font-weight:bold;">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
                 @error('under_name')
@@ -25,7 +26,7 @@
           </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
-              <label class="d-block m-0" style="font-size:13px">セイ</label>
+              <label class="d-block m-0" style="font-size:13px; font-weight:bold;">セイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
                 @error('over_name_kana')
@@ -34,7 +35,7 @@
               </div>
             </div>
             <div class="" style="width:140px">
-              <label class="d-block m-0" style="font-size:13px">メイ</label>
+              <label class="d-block m-0" style="font-size:13px; font-weight:bold;">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
                 @error('under_name_kana')
@@ -44,7 +45,7 @@
             </div>
           </div>
           <div class="mt-3">
-            <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
+            <label class="m-0 d-block" style="font-size:13px; font-weight:bold;">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
               @error('mail_address')
@@ -53,100 +54,114 @@
             </div>
           </div>
         </div>
-        <div class="mt-3">
-          <input type="radio" name="sex" class="sex" value="1">
-          <label style="font-size:13px">男性</label>
-          <input type="radio" name="sex" class="sex" value="2">
-          <label style="font-size:13px">女性</label>
-          <input type="radio" name="sex" class="sex" value="3">
-          <label style="font-size:13px">その他</label>
+        <div class="mt-3 ml-3 mr-3 check-box">
+          <div class="check-box-each">
+            <input type="radio" name="sex" class="sex" value="1">
+            <label style="font-size:13px; font-weight:bold;">男性</label>
+          </div>
+          <div class="check-box-each">
+            <input type="radio" name="sex" class="sex" value="2">
+            <label style="font-size:13px; font-weight:bold;">女性</label>
+          </div>
+          <div class="check-box-each">
+            <input type="radio" name="sex" class="sex" value="3">
+            <label style="font-size:13px; font-weight:bold;">その他</label>
+          </div>
           @error('sex')
           <p class="text-danger">{{ $message }}</p>
           @enderror
         </div>
         <div class="mt-3">
-          <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
-          <select class="old_year" name="old_year">
-            <option value="none">-----</option>
-            <option value="1985">1985</option>
-            <option value="1986">1986</option>
-            <option value="1987">1987</option>
-            <option value="1988">1988</option>
-            <option value="1989">1989</option>
-            <option value="1990">1990</option>
-            <option value="1991">1991</option>
-            <option value="1992">1992</option>
-            <option value="1993">1993</option>
-            <option value="1994">1994</option>
-            <option value="1995">1995</option>
-            <option value="1996">1996</option>
-            <option value="1997">1997</option>
-            <option value="1998">1998</option>
-            <option value="1999">1999</option>
-            <option value="2000">2000</option>
-            <option value="2001">2001</option>
-            <option value="2002">2002</option>
-            <option value="2003">2003</option>
-            <option value="2004">2004</option>
-            <option value="2005">2005</option>
-            <option value="2006">2006</option>
-            <option value="2007">2007</option>
-            <option value="2008">2008</option>
-            <option value="2009">2009</option>
-            <option value="2010">2010</option>
-          </select>
-          <label style="font-size:13px">年</label>
-          <select class="old_month" name="old_month">
-            <option value="none">-----</option>
-            <option value="01">1</option>
-            <option value="02">2</option>
-            <option value="03">3</option>
-            <option value="04">4</option>
-            <option value="05">5</option>
-            <option value="06">6</option>
-            <option value="07">7</option>
-            <option value="08">8</option>
-            <option value="09">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
-          <label style="font-size:13px">月</label>
-          <select class="old_day" name="old_day">
-            <option value="none">-----</option>
-            <option value="01">1</option>
-            <option value="02">2</option>
-            <option value="03">3</option>
-            <option value="04">4</option>
-            <option value="05">5</option>
-            <option value="06">6</option>
-            <option value="07">7</option>
-            <option value="08">8</option>
-            <option value="09">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-          </select>
-          <label style="font-size:13px">日</label>
+          <label class="d-block m-0 aa" style="font-size:13px; font-weight:bold;">生年月日</label>
+          <div class="check-box" style="justify-content:center;">
+            <div class="check-box-each" style="width:100px;">
+              <select class="old_year" name="old_year">
+                <option value="none">-----</option>
+                <option value="1985">1985</option>
+                <option value="1986">1986</option>
+                <option value="1987">1987</option>
+                <option value="1988">1988</option>
+                <option value="1989">1989</option>
+                <option value="1990">1990</option>
+                <option value="1991">1991</option>
+                <option value="1992">1992</option>
+                <option value="1993">1993</option>
+                <option value="1994">1994</option>
+                <option value="1995">1995</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+              </select>
+              <label style="font-size:13px; font-weight:bold;">年</label>
+            </div>
+            <div class="check-box-each" style="width:100px;">
+              <select class="old_month" name="old_month">
+                <option value="none">-----</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <label style="font-size:13px; font-weight:bold;">月</label>
+            </div>
+            <div class="check-box-each" style="width:100px;">
+              <select class="old_day" name="old_day">
+                <option value="none">-----</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+              <label style="font-size:13px; font-weight:bold;">日</label>
+            </div>
+          </div>
           @error('old_year')
           <p class="text-danger">{{ $message }}</p>
           @enderror
@@ -158,21 +173,31 @@
           @enderror
         </div>
         <div class="mt-3">
-          <label class="d-block m-0" style="font-size:13px">役職</label>
-          <input type="radio" name="role" class="admin_role role" value="1">
-          <label style="font-size:13px">教師(国語)</label>
-          <input type="radio" name="role" class="admin_role role" value="2">
-          <label style="font-size:13px">教師(数学)</label>
-          <input type="radio" name="role" class="admin_role role" value="3">
-          <label style="font-size:13px">教師(英語)</label>
-          <input type="radio" name="role" class="other_role role" value="4">
-          <label style="font-size:13px" class="other_role">生徒</label>
-          @error('role')
-          <p class="text-danger">{{ $message }}</p>
-          @enderror
+          <label class="d-block m-0" style="font-size:13px; font-weight:bold;">役職</label>
+          <div class="check-box">
+            <div class="check-box-each">
+              <input type="radio" name="role" class="admin_role role" value="1">
+              <label style="font-size:13px; font-weight:bold;">教師(国語)</label>
+            </div>
+            <div class="check-box-each">
+              <input type="radio" name="role" class="admin_role role" value="2">
+              <label style="font-size:13px; font-weight:bold;">教師(数学)</label>
+            </div>
+            <div class="check-box-each">
+              <input type="radio" name="role" class="admin_role role" value="3">
+              <label style="font-size:13px; font-weight:bold;">教師(英語)</label>
+            </div>
+            <div class="check-box-each">
+              <input type="radio" name="role" class="other_role role" value="4">
+              <label style="font-size:13px; font-weight:bold;" class="other_role">生徒</label>
+            </div>
+            @error('role')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+          </div>
         </div>
         <div class="select_teacher d-none">
-          <label class="d-block m-0" style="font-size:13px">選択科目</label>
+          <label class="d-block m-0" style="font-size:13px; font-weight:bold;">選択科目</label>
           @foreach($subjects as $subject)
           <div class="">
             <input type="checkbox" name="subject[]" value="{{ $subject->id }}">
@@ -181,7 +206,7 @@
           @endforeach
         </div>
         <div class="mt-3">
-          <label class="d-block m-0" style="font-size:13px">パスワード</label>
+          <label class="d-block m-0" style="font-size:13px; font-weight:bold;">パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
           </div>
@@ -190,7 +215,7 @@
           @enderror
         </div>
         <div class="mt-3">
-          <label class="d-block m-0" style="font-size:13px">確認用パスワード</label>
+          <label class="d-block m-0" style="font-size:13px; font-weight:bold;">確認用パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
           </div>
@@ -202,10 +227,9 @@
           <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">
         </div>
         <div class="text-center">
-          <a href="{{ route('login') }}">ログイン</a>
+          <a href="{{ route('login') }}">ログインはこちら</a>
         </div>
       </div>
-      {{ csrf_field() }}
     </div>
   </form>
   </div>

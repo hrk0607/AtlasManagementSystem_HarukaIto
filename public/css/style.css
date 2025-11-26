@@ -16,6 +16,41 @@ li {
   list-style: none;
 }
 
+/* ログイン画面 */
+.login-cover {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ECF1F6;
+  margin: auto;
+}
+
+.login-cover img {
+  display: block;
+  padding-bottom: 3rem;
+  width: 15%;
+  height: auto;
+}
+
+.login-box {
+  width: 30%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  background: #FFF;
+  box-shadow: 0px 5px 5px 5px #ccc;
+  overflow: hidden;
+}
+
+.check-box {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* サイドバー */
 .sidebar {
   width: 185px;
@@ -58,7 +93,7 @@ li {
 }
 
 .calendar-box {
-  width: 75%;
+  width: 90%;
   margin: auto;
 }
 
@@ -137,12 +172,12 @@ li {
 }
 
 .reserve-wrapper {
-  padding-top: 2rem;
+  padding-top: 5rem;
   background: #ECF1F6;
+  font-size: 20px;
 }
 
 .reserve-inner {
-  width: 75%;
   padding: 5px;
   border: 1px solid #dee2e6;
   border-radius: 5px;
@@ -151,17 +186,27 @@ li {
   overflow: hidden;
 }
 
+.fixed-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
 .table-header {
   background-color: #03AAD2;
   color: #fff;
 }
 
 .table-row:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: #caf0f8;
 }
 
 .table-row:nth-child(even) {
-  background-color: #e6f5fb;
+  background-color: #ffffff;
+}
+
+.reserve-table th,
+.reserve-table td {
+  text-align: center;
 }
 
 /* モーダル */
@@ -215,13 +260,24 @@ li {
   border-radius: 10px;
 }
 
-.post_bottom_area {
+.post_bottom {
+  display: flex;
   justify-content: space-between;
+}
+
+.post_category {
+  background-color: #03AAD2;
+  border: 1px solid #03AAD2;
+  border-radius: 7px;
+  font-size: 13px;
+  color: #fff;
+  padding: 3px;
 }
 
 .like_btn,
 .un_like_btn {
   cursor: pointer;
+  color: #9E9E9E;
 }
 
 .un_like,

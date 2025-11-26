@@ -3,15 +3,18 @@
     <div class="post_view w-70 mt-5">
       @foreach($posts as $post)
       <div class="post_area border w-75 m-auto p-3">
-        <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
-        <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
-        <div class="post_bottom_area d-flex">
-          <div class="d-flex post_status">
-            <div class="mr-5">
-              <i class="fa fa-comment"></i>
-              <span>{{ $post->post_comments_count }}</span>
+        <p style="color:#9e9e9e;"><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
+        <p><a href="{{ route('post.detail', ['id' => $post->id]) }}" style="color: inherit; text-decoration: none; font-weight:bold;">{{ $post->post_title }}</a></p>
+        <div class="post_bottom_area">
+          <div class="post_bottom">
+            @foreach($post->subCategories as $subCategory)
+            <div class="post_category">
+              {{ $subCategory->sub_category }}
             </div>
-            <div>
+            @endforeach
+            <div class="post_status d-flex">
+              <i class="fa fa-comment" style="color:#9e9e9e;"></i>
+              <span>{{ $post->post_comments_count }}</span>
               @if(Auth::user()->is_Like($post->id))
               <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $post->likes_count }}</span></p>
               @else

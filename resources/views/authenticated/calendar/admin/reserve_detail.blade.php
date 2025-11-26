@@ -7,11 +7,11 @@
       </p>
 
       <div class="reserve-inner">
-        <table class="reserve-table">
+        <table class="reserve-table fixed-table">
           <tr class="table-header">
-            <th class="w-1/5">ID</th>
-            <th class="[width:40%]">名前</th>
-            <th class="[width:40%]">場所</th>
+            <th style="width:15%;">ID</th>
+            <th style="width:40%;">名前</th>
+            <th style="width:45%;">場所</th>
           </tr>
 
           @php
@@ -21,9 +21,9 @@
           @if($setting && $setting->users->count())
           @foreach ($setting->users as $user)
           <tr class="table-row">
-            <td class="w-1/5">{{ $user->id }}</td>
-            <td class="[width:40%]">{{ $user->over_name }} {{ $user->under_name }}</td>
-            <td class="[width:40%]">リモート</td>
+            <td style="width:15%;">{{ $user->id }}</td>
+            <td style="width:40%;">{{ $user->over_name }} {{ $user->under_name }}</td>
+            <td style="width:45%;">リモート</td>
           </tr>
 
           @endforeach
