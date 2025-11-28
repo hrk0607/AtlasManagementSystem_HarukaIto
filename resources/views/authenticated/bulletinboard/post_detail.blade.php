@@ -5,6 +5,11 @@
         <div class="p-3">
           <div class="detail_inner_head">
             <div>
+              @foreach($post->subCategories as $subCategory)
+              <div class="post_category">
+                {{ $subCategory->sub_category }}
+              </div>
+              @endforeach
             </div>
             <div>
               @if(Auth::id() === $post->user_id)
@@ -16,7 +21,7 @@
           </div>
 
           <div class="contributor d-flex">
-            <p>
+            <p style="font-size:14px; margin-top:12px;">
               <span>{{ $post->user->over_name }}</span>
               <span>{{ $post->user->under_name }}</span>
               さん
@@ -45,13 +50,13 @@
     <div class="w-50 p-3">
       <div class="comment_container border m-5">
         <div class="comment_area p-3">
+          @error('comment')
+          <p class="text-danger">{{ $message }}</p>
+          @enderror
           <p class="m-0">コメントする</p>
           <form action="{{ route('comment.create') }}" method="post" id="commentRequest">
             {{ csrf_field() }}
             <textarea class="w-100" name="comment"></textarea>
-            @error('comment')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
             <input type="hidden" name="post_id" value="{{ $post->id }}">
             <input type="submit" class="btn btn-primary" value="投稿">
           </form>
@@ -65,16 +70,16 @@
       <form action="{{ route('post.edit') }}" method="post">
         <div class="w-100">
           <div class="modal-inner-title w-50 m-auto">
-            <input type="text" name="post_title" placeholder="タイトル" class="w-100">
             @error('post_title')
             <p class="text-danger">{{ $message }}</p>
             @enderror
+            <input type="text" name="post_title" placeholder="タイトル" class="w-100">
           </div>
           <div class="modal-inner-body w-50 m-auto pt-3 pb-3">
-            <textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea>
             @error('post_body')
             <p class="text-danger">{{ $message }}</p>
             @enderror
+            <textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea>
 
           </div>
           <div class="w-50 m-auto edit-modal-btn d-flex">

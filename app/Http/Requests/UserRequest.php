@@ -23,8 +23,6 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $birth_date = request()->old_year . '-' . request()->old_month . '-' . request()->old_day;
-
         return [
             'over_name' => 'required|string|max:10',
             'under_name' => 'required|string|max:10',
@@ -36,5 +34,24 @@ class UserRequest extends FormRequest
             'role' => 'required|in:1,2,3,4',
             'password' => 'required|min:8|max:30|confirmed',
         ];
+    }
+
+    public function validationData()
+    {
+        $data = $this->all();
+        if (
+            !empty($data['old_year']) &&
+            !empty($data['old_month']) &&
+            !empty($data['old_day']) &&
+            $data['old_year'] !== 'none' &&
+            $data['old_month'] !== 'none' &&
+            $data['old_day'] !== 'none'
+        ) {
+            $data['birth_date'] = $data['old_year'] . '-' . $data['old_month'] . '-' . $data['old_day'];
+        } else {
+            $data['birth_date'] = null;
+        }
+
+        return $data;
     }
 }

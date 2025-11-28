@@ -6,56 +6,59 @@
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
+              @error('over_name')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
               <label class="d-block m-0" style="font-size:13px; font-weight:bold;">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
-                @error('over_name')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
               </div>
             </div>
             <div class="" style="width:140px">
+              @error('under_name')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
               <label class=" d-block m-0" style="font-size:13px; font-weight:bold;">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
-                @error('under_name')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
               </div>
             </div>
           </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
+              @error('over_name_kana')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
               <label class="d-block m-0" style="font-size:13px; font-weight:bold;">セイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
-                @error('over_name_kana')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
               </div>
             </div>
             <div class="" style="width:140px">
+              @error('under_name_kana')
+              <p class="text-danger">{{ $message }}</p>
+              @enderror
               <label class="d-block m-0" style="font-size:13px; font-weight:bold;">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
-                @error('under_name_kana')
-                <p class="text-danger">{{ $message }}</p>
-                @enderror
               </div>
             </div>
           </div>
           <div class="mt-3">
+            @error('mail_address')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
             <label class="m-0 d-block" style="font-size:13px; font-weight:bold;">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
-              @error('mail_address')
-              <p class="text-danger">{{ $message }}</p>
-              @enderror
             </div>
           </div>
         </div>
         <div class="mt-3 ml-3 mr-3 check-box">
           <div class="check-box-each">
+            @error('sex')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
             <input type="radio" name="sex" class="sex" value="1">
             <label style="font-size:13px; font-weight:bold;">男性</label>
           </div>
@@ -67,14 +70,14 @@
             <input type="radio" name="sex" class="sex" value="3">
             <label style="font-size:13px; font-weight:bold;">その他</label>
           </div>
-          @error('sex')
-          <p class="text-danger">{{ $message }}</p>
-          @enderror
         </div>
         <div class="mt-3">
+          @error('birth_date')
+          <p class="text-danger">{{ $message }}</p>
+          @enderror
           <label class="d-block m-0 aa" style="font-size:13px; font-weight:bold;">生年月日</label>
-          <div class="check-box" style="justify-content:center;">
-            <div class="check-box-each" style="width:100px;">
+          <div class="check-box" style="align-items:center;">
+            <div class="select-box border-bottom border-primary" style="width:100px;">
               <select class="old_year" name="old_year">
                 <option value="none">-----</option>
                 <option value="1985">1985</option>
@@ -104,9 +107,10 @@
                 <option value="2009">2009</option>
                 <option value="2010">2010</option>
               </select>
-              <label style="font-size:13px; font-weight:bold;">年</label>
             </div>
-            <div class="check-box-each" style="width:100px;">
+            <label style="font-size:13px; font-weight:bold;">年</label>
+
+            <div class="select-box border-bottom border-primary" style="width:100px;">
               <select class="old_month" name="old_month">
                 <option value="none">-----</option>
                 <option value="01">1</option>
@@ -122,9 +126,10 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <label style="font-size:13px; font-weight:bold;">月</label>
             </div>
-            <div class="check-box-each" style="width:100px;">
+            <label style="font-size:13px; font-weight:bold;">月</label>
+
+            <div class="select-box border-bottom border-primary" style="width:100px;">
               <select class="old_day" name="old_day">
                 <option value="none">-----</option>
                 <option value="01">1</option>
@@ -159,18 +164,10 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
               </select>
-              <label style="font-size:13px; font-weight:bold;">日</label>
             </div>
+            <label style="font-size:13px; font-weight:bold;">日</label>
+
           </div>
-          @error('old_year')
-          <p class="text-danger">{{ $message }}</p>
-          @enderror
-          @error('old_month')
-          <p class="text-danger">{{ $message }}</p>
-          @enderror
-          @error('old_day')
-          <p class="text-danger">{{ $message }}</p>
-          @enderror
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px; font-weight:bold;">役職</label>

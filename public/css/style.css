@@ -46,6 +46,44 @@ li {
   overflow: hidden;
 }
 
+.birthday-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.select-box {
+  position: relative;
+  display: inline-block;
+}
+
+.select-box select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: transparent;
+  border: none;
+  padding: 4px 10px 4px 0;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+.select-box::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 5px;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: rotate(45deg);
+}
+
 .check-box {
   display: flex;
   justify-content: space-between;
@@ -302,7 +340,7 @@ li {
 }
 
 .detail_post {
-  font-size: 12px;
+  font-size: 14px;
   color: #9E9E9E;
 }
 
@@ -404,6 +442,20 @@ li {
   justify-content: space-between;
 }
 
+.one_person span {
+  font-weight: bold;
+}
+
+.one_person a {
+  color: #03AAD2;
+  text-decoration: none;
+}
+
+.one_person a:hover {
+  color: #03AAD2;
+  text-decoration: none;
+}
+
 .person-label {
   color: #808080;
 }
@@ -476,15 +528,26 @@ label {
   border: none;
 }
 
+.reset-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #03AAD2;
+  cursor: pointer;
+  font-size: 18px;
+}
+
 /* profile */
 .subject_edit_btn {
-  font-size: 12px;
-  color: #0000FF;
+  font-size: 16px;
+  color: #03AAD2;
   cursor: pointer;
 }
 
 .subject_inner {
-  display: none;
+  display: flex;
+  flex-direction: row;
 }
 
 .w-70 {
@@ -582,9 +645,9 @@ label {
   transition: transform 0.3s ease;
 }
 
-/* main-header と search_conditions の両方対応 */
 .main-header[aria-expanded="true"] .arrow-icon,
-.search_conditions[aria-expanded="true"] .arrow-icon {
+.search_conditions[aria-expanded="true"] .arrow-icon,
+.subject_edit[aria-expanded="true"] .arrow-icon {
   transform: rotate(180deg);
 }
 

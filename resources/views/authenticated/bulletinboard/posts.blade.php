@@ -12,14 +12,17 @@
               {{ $subCategory->sub_category }}
             </div>
             @endforeach
-            <div class="post_status d-flex">
-              <i class="fa fa-comment" style="color:#9e9e9e;"></i>
-              <span>{{ $post->post_comments_count }}</span>
-              @if(Auth::user()->is_Like($post->id))
-              <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $post->likes_count }}</span></p>
-              @else
-              <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $post->likes_count }}</span></p>
-              @endif
+            <div>
+              <div class="post_status" style="display: flex; align-items: center; gap:3rem;">
+                <p class="m-0"><i class="fa fa-comment" style="color:#9e9e9e;"></i>
+                  <span>{{ $post->post_comments_count }}</span>
+                </p>
+                @if(Auth::user()->is_Like($post->id))
+                <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $post->likes_count }}</span></p>
+                @else
+                <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $post->likes_count }}</span></p>
+                @endif
+              </div>
             </div>
           </div>
         </div>
