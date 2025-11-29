@@ -195,14 +195,16 @@
         </div>
         <div class="select_teacher d-none">
           <label class="d-block m-0" style="font-size:13px; font-weight:bold;">選択科目</label>
-          @foreach($subjects as $subject)
-          <div class="">
-            <input type="checkbox" name="subject[]" value="{{ $subject->id }}">
-            <label>{{ $subject->subject }}</label>
+          <div class="check-box" style="padding:0 1rem; align-items:center;">
+            @foreach($subjects as $subject)
+            <div class="">
+              <input type="checkbox" name="subject[]" value="{{ $subject->id }}">
+              <label style="font-size:13px; font-weight:bold;">{{ $subject->subject }}</label>
+            </div>
+            @endforeach
           </div>
-          @endforeach
         </div>
-        <div class="mt-3">
+        <div class=" mt-3">
           <label class="d-block m-0" style="font-size:13px; font-weight:bold;">パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">

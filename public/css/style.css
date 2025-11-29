@@ -19,13 +19,14 @@ li {
 /* ログイン画面 */
 .login-cover {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #ECF1F6;
   margin: auto;
+  padding: 2rem;
 }
 
 .login-cover img {
@@ -115,6 +116,7 @@ li {
 /* スクール予約関連 */
 .calendar-wrapper {
   padding-top: 2rem;
+  padding-bottom: 2rem;
   background: #ECF1F6;
 }
 

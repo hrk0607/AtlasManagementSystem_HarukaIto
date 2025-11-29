@@ -11,7 +11,7 @@ class CalendarView
   private $carbon;
   function __construct($date)
   {
-    $this->carbon = new Carbon($date);
+    $this->carbon = new Carbon($date, 'Asia/Tokyo');
   }
 
   public function getTitle()
@@ -46,12 +46,11 @@ class CalendarView
           $html[] = '<td class="calendar-td day-blank"></td>';
           continue;
         }
-        $startDay = $this->carbon->copy()->format("Y-m-01");
-        $toDay = $this->carbon->copy()->format("Y-m-d");
 
         $target = $day->everyDay();
-        $weekday = Carbon::parse($target)->dayOfWeek; // 0=日, 6=土
-        $today = Carbon::today()->format("Y-m-d");
+        $weekday = Carbon::parse($target, 'Asia/Tokyo')->dayOfWeek; // 0=日, 6=土
+        $today = Carbon::today('Asia/Tokyo')->format("Y-m-d");
+        $startDay = $this->carbon->copy()->format("Y-m-01");
 
         // 土日用クラス付与
         $weekClass = '';
@@ -61,17 +60,17 @@ class CalendarView
           $weekClass = 'day-sun';    // 日曜
         }
 
-        if ($target < $today) {
-          // 過去日
-          $html[] = '<td class="calendar-td past-day ' . $weekClass . '">';
-        } else {
-          // 未来日・今日
-          $html[] = '<td class="calendar-td ' . $weekClass . ' ' . $day->getClassName() . '">';
-        }
-        $html[] = $day->render();
 
         // 今日より前かどうか
-        $isPast = $day->everyDay() < Carbon::today()->format('Y-m-d');
+        $isPast = ($startDay <= $target) && ($target <= $today);
+
+        if ($isPast) {
+          $html[] = '<td class="calendar-td past-day ' . $weekClass . '">';
+        } else {
+          $html[] = '<td class="calendar-td ' . $weekClass . ' ' . $day->getClassName() . '">';
+        }
+
+        $html[] = $day->render();
 
         // 予約がある場合
         if (in_array($day->everyDay(), $day->authReserveDay())) {
