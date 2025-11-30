@@ -83,6 +83,12 @@ li {
   border-right: 2px solid #333;
   border-bottom: 2px solid #333;
   transform: rotate(45deg);
+  transition: 0.2s;
+}
+
+.select-box:focus-within::after {
+  transform: rotate(225deg);
+  top: 10px;
 }
 
 .check-box {

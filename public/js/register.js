@@ -1,3 +1,5 @@
+console.log('register.js loaded');
+
 $(function () {
   $(document).on('click', '.other_role', function () {
     $('.select_teacher').removeClass('d-none');
@@ -97,5 +99,24 @@ $(function () {
       $('.register_btn').prop('disabled', true);
     }
   });
+
+  $(document).on('click', '.select-box', function (e) {
+    if (!$(e.target).is('select')) {
+      var $select = $(this).find('select');
+      $select.focus();
+      $select.click();
+    }
+  });
+
+  $(document).on('change', '.select-box select', function () {
+    $(this).blur();
+
+    $(document).trigger('change');
+  });
+
+  $(document).on('blur', '.select-box select', function () {
+  });
+
+
 
 })

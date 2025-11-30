@@ -15,7 +15,7 @@
 
         <div class="subject_edit mt-3" data-bs-toggle="collapse" data-bs-target="#subjectInner" aria-expanded="false" style="cursor: pointer;">
           <span class="subject_edit_btn">選択科目の編集</span>
-          <i class="arrow-icon fa fa-chevron-down" style="color:#03AAD2; pointer-events:none;"></i>
+          <i class="arrow-icon  fa fa-chevron-down" style="color:#03AAD2; pointer-events:none;"></i>
         </div>
 
         <div class="collapse subject_inner mt-2" id="subjectInner">
