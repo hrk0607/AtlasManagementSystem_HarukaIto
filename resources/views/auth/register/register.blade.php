@@ -107,6 +107,7 @@
                 <option value="2009">2009</option>
                 <option value="2010">2010</option>
               </select>
+              <span class="custom-arrow-span"></span>
             </div>
             <label style="font-size:13px; font-weight:bold;">年</label>
 
@@ -126,6 +127,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
+              <span class="custom-arrow-span"></span>
             </div>
             <label style="font-size:13px; font-weight:bold;">月</label>
 
@@ -164,6 +166,7 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
               </select>
+              <span class="custom-arrow-span"></span>
             </div>
             <label style="font-size:13px; font-weight:bold;">日</label>
 

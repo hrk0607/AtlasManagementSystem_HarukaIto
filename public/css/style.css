@@ -57,6 +57,7 @@ li {
 .select-box {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .select-box select {
@@ -72,7 +73,7 @@ li {
   min-width: 60px;
 }
 
-.select-box::after {
+.custom-arrow-span {
   content: "";
   pointer-events: none;
   position: absolute;
@@ -84,9 +85,10 @@ li {
   border-bottom: 2px solid #333;
   transform: rotate(45deg);
   transition: 0.2s;
+  z-index: 0;
 }
 
-.select-box:focus-within::after {
+.select-box.is-open .custom-arrow-span {
   transform: rotate(225deg);
   top: 10px;
 }

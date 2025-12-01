@@ -1,5 +1,3 @@
-console.log('register.js loaded');
-
 $(function () {
   $(document).on('click', '.other_role', function () {
     $('.select_teacher').removeClass('d-none');
@@ -100,21 +98,43 @@ $(function () {
     }
   });
 
+  $(document).on('click', '.select-box .custom-arrow-span', function (e) {
+    var $select = $(this).siblings('select');
+
+    // 削除：矢印クリックから focus/click をトリガーする試み
+    // $select.focus();
+    // setTimeout(function() {
+    //     $select.click();
+    // }, 50);
+  });
+
+  // 削除：以前の .select-box 全体への click イベントも削除
+  /*
   $(document).on('click', '.select-box', function (e) {
-    if (!$(e.target).is('select')) {
-      var $select = $(this).find('select');
-      $select.focus();
-      $select.click();
-    }
+      // ...
+  });
+  */
+
+
+  // $(document).on('click', '.select-box .custom-arrow-span', function (e) {
+  //   var $select = $(this).siblings('select');
+  //   $select.focus();
+  //   $select.click();
+  //   $(this).closest('.select-box').addClass('is-open');
+  // });
+
+  $(document).on('focus', '.select-box select', function () {
+    $(this).closest('.select-box').addClass('is-open');
+  });
+
+  $(document).on('blur', '.select-box select', function () {
+    $(this).closest('.select-box').removeClass('is-open');
   });
 
   $(document).on('change', '.select-box select', function () {
     $(this).blur();
 
     $(document).trigger('change');
-  });
-
-  $(document).on('blur', '.select-box select', function () {
   });
 
 
