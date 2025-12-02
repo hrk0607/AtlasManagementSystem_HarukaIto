@@ -99,20 +99,15 @@ $(function () {
   });
 
 
-  // focus/blur/change の処理はそのまま維持（回転の制御と強制 blur の役割）
-
   $(document).on('focus', '.select-box select', function () {
-    console.log('--- 2. Select Focused ---'); // ✅ ここを追加
     $(this).closest('.select-box').addClass('is-open');
   });
 
   $(document).on('blur', '.select-box select', function () {
-    console.log('--- 3. Select Blurred ---'); // ✅ ここを追加
     $(this).closest('.select-box').removeClass('is-open');
   });
 
   $(document).on('change', '.select-box select', function () {
-    console.log('--- 4. Select Changed ---'); // ✅ ここを追加
     $(this).blur();
     $(document).trigger('change');
   });
