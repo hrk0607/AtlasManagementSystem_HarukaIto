@@ -95,6 +95,10 @@ li {
   justify-content: space-between;
 }
 
+.text-danger {
+  font-size: 11px;
+}
+
 /* サイドバー */
 .sidebar {
   width: 185px;
@@ -196,20 +200,8 @@ li {
   font-size: 12px;
 }
 
-.adjust-table {
-  width: 70% !important;
-}
-
-.adjust-table td {
-  padding: 0 !important;
-}
-
 .adjust-area p {
   justify-content: space-around;
-}
-
-.adjust-table-btn {
-  width: 70%;
 }
 
 .day-num {
@@ -426,14 +418,48 @@ li {
 .reserve_users_area {
   display: flex;
   flex-wrap: wrap;
-  width: 845px;
-  margin: 20px auto;
-  overflow: auto;
+  max-height: 94vh;
+  width: 900px;
+  margin: 20px 30px 20px 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
   gap: 15px;
 }
 
 .reserve_users_area span {
   font-size: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-button:single-button {
+  background-color: transparent;
+  display: block;
+  height: 15px;
+  width: 15px;
+  border: none;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #494949;
+  border-left: 10px solid transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-top: 10px solid #494949;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
 }
 
 .one_person {

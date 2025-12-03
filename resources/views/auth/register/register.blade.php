@@ -2,45 +2,45 @@
   <form action="{{ route('registerPost') }}" method="POST">
     @csrf
     <div class="login-cover">
-      <div class="login-box" style="padding:2rem;">
+      <div class="login-box" style="padding:1.5rem;">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
-            <div class="" style="width:140px">
+            <div class="" style="width:165px">
               @error('over_name')
               <p class="text-danger">{{ $message }}</p>
               @enderror
               <label class="d-block m-0" style="font-size:13px; font-weight:bold;">姓</label>
-              <div class="border-bottom border-primary" style="width:140px;">
-                <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
+              <div class="border-bottom border-primary" style="width:165px;">
+                <input type="text" style="width:165px;" class="border-0 over_name" name="over_name">
               </div>
             </div>
-            <div class="" style="width:140px">
+            <div class="" style="width:165px">
               @error('under_name')
               <p class="text-danger">{{ $message }}</p>
               @enderror
               <label class=" d-block m-0" style="font-size:13px; font-weight:bold;">名</label>
-              <div class="border-bottom border-primary" style="width:140px;">
-                <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
+              <div class="border-bottom border-primary" style="width:165px;">
+                <input type="text" style="width:165px;" class="border-0 under_name" name="under_name">
               </div>
             </div>
           </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
-            <div class="" style="width:140px">
+            <div class="" style="width:165px">
               @error('over_name_kana')
               <p class="text-danger">{{ $message }}</p>
               @enderror
               <label class="d-block m-0" style="font-size:13px; font-weight:bold;">セイ</label>
-              <div class="border-bottom border-primary" style="width:140px;">
-                <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
+              <div class="border-bottom border-primary" style="width:165px;">
+                <input type="text" style="width:165px;" class="border-0 over_name_kana" name="over_name_kana">
               </div>
             </div>
-            <div class="" style="width:140px">
+            <div class="" style="width:165px">
               @error('under_name_kana')
               <p class="text-danger">{{ $message }}</p>
               @enderror
               <label class="d-block m-0" style="font-size:13px; font-weight:bold;">メイ</label>
-              <div class="border-bottom border-primary" style="width:140px;">
-                <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
+              <div class="border-bottom border-primary" style="width:165px;">
+                <input type="text" style="width:165px;" class="border-0 under_name_kana" name="under_name_kana">
               </div>
             </div>
           </div>

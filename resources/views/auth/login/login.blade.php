@@ -2,7 +2,7 @@
   <form action="{{ route('loginPost') }}" method="POST">
     <div class="login-cover">
       <img src="{{ asset('image/atlas-black.png') }}" alt="logo">
-      <div class="login-box">
+      <div class="login-box" style="padding:1rem;">
         <div class="w-75 m-auto pt-5">
           <label class="d-block m-0" style="font-size:13px; font-weight:bold;">メールアドレス</label>
           <div class="border-bottom border-primary w-100">

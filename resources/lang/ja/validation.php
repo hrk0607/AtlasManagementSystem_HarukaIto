@@ -82,6 +82,7 @@ return [
     'over_name_kana' => 'セイ',
     'under_name_kana' => 'メイ',
     'mail_address' => 'メールアドレス',
+    'birth_date' => '生年月日',
     'password' => 'パスワード',
     'password_confirmation' => '確認用パスワード',
   ],

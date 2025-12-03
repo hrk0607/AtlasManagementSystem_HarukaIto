@@ -29,9 +29,10 @@
           </div>
         </div>
 
-      </div>
-      <div class="text-right w-75 m-auto">
-        <input type="submit" class="btn btn-primary" value="予約する" form="reserveParts" style="margin-top:1rem;">
+        <div class="text-right">
+          <input type="submit" class="btn btn-primary" value="予約する" form="reserveParts" style="margin-top:1rem;">
+
+        </div>
       </div>
     </div>
   </div>
