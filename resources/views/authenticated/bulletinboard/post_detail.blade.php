@@ -95,14 +95,17 @@
 
   <div class="modal js-delete-modal delete-modal">
     <div class="modal__bg js-modal-close"></div>
-    <div class="modal__content delete-modal__content">
+    <div class="modal__content delete-modal__content" style="margin:1rem;">
       <p>この投稿を削除します。よろしいでしょうか？</p>
-      <form id="deleteForm" method="GET">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-primary btn-modal">OK</button>
+
+      <div class="modal-button" style="display: flex;justify-content: space-between;">
+        <form id="deleteForm" method="GET">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-primary btn-modal" style="padding:6px 2rem;">OK</button>
+        </form>
         <button type="button" class="btn btn-outline-secondary btn-modal js-modal-close">キャンセル</button>
-      </form>
+      </div>
     </div>
   </div>
 
